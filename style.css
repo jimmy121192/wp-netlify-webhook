@@ -1,0 +1,15 @@
+.regular-field{
+    width: 25em;
+}
+#trigger-build{
+    padding: 7px 40px;
+    background-color: #599eb4;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+#trigger-build:hover{
+    background-color: #308dac;
+}
