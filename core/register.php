@@ -30,7 +30,7 @@ function nwh_page_content()
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row">Enable Automatic Deployment?</th>
+                <th scope="row">Enable automated deployment?</th>
                 <td>
                     <?php $auto_enable = get_option('nwh_auto_enable'); ?>
                     <input type="checkbox" name="nwh_auto_enable" value="Yes" <?php echo ($auto_enable && $auto_enable == "Yes") ? "checked" : ""; ?> />
@@ -38,7 +38,7 @@ function nwh_page_content()
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row">Trigger a new Build</th>
+                <th scope="row">Trigger a new build</th>
                 <td>
                     <form method="post">
                         <input type="submit" name="trigger-build" id="trigger-build" value="Deploy" />
