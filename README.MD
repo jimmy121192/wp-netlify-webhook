@@ -23,6 +23,6 @@ Why did I create this plugin?
 
 ===============
 
-<img alt="Jimmy" src="https://alonedreamer.com/jimmymedia/images/netlify-min.png" width="300" />
+<img alt="Jimmy" src="https://alonedreamer.com/jimmymedia/images/netlify-min.png"/>
 
 
