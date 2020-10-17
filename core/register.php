@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************************************
  * REGISTER PLUGIN & ADMIN MENU
  **************************************************************************************/
@@ -41,20 +42,24 @@ function nwh_page_content()
                 <th scope="row">Trigger a new build</th>
                 <td>
                     <form method="post">
-                        <input type="submit" name="trigger-build" id="trigger-build" value="Deploy" />
+                        <input type="hidden" name="nwh_deploy" id="trigger" value="on" />
+                        <input type="submit" id="trigger-build" value="Deploy" />
                     </form>
                     <?php
                     function trigger_build()
                     {
-                        $nwh_info = get_option('nwh_info');
-                        $url = curl_init($nwh_info);
-                        curl_setopt($url, CURLOPT_CUSTOMREQUEST, 'POST');
-                        curl_setopt($url, CURLOPT_RETURNTRANSFER, true);
-                        curl_exec($url);
+                        $nwh_deploy =  get_option('nwh_deploy');
+                        if ($nwh_deploy == "on") {
+                            echo "Build processing...";
+                            $nwh_info = get_option('nwh_info');
+                            $url = curl_init($nwh_info);
+                            curl_setopt($url, CURLOPT_CUSTOMREQUEST, 'POST');
+                            curl_setopt($url, CURLOPT_RETURNTRANSFER, true);
+                            curl_exec($url);
+                            update_option('nwh_deploy', 'off');
+                        }
                     }
-                    if (array_key_exists('trigger-build', $_POST)) {
-                        trigger_build();
-                    }
+                    trigger_build()
                     ?>
                 </td>
             </tr>
@@ -67,6 +72,7 @@ add_action('admin_init', 'update_nwh_settings');
 function update_nwh_settings()
 {
     register_setting('nwh-settings', 'nwh_info');
+    register_setting('nwh-settings', 'nwh_deploy');
     register_setting('nwh-settings', 'nwh_auto_enable');
 }
 function nwh_info($content)
