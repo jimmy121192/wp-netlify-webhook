@@ -20,3 +20,9 @@ Why did I create this plugin?
 3.  **Go to the WP Plugin menu. Upload and install this plugin**
 
 3.  **Enjoy the fast development**
+
+===============
+
+<img alt="Jimmy" src="https://alonedreamer.com/jimmymedia/netlify-min.png" width="300" />
+
+
